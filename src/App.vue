@@ -1,17 +1,18 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import { ref } from 'vue'
+import { RouterView } from 'vue-router'
+import MenuHp from '@/components/MenuHp.vue'
+import FooterHp from '@/components/FooterHp.vue'
 </script>
 
 <template>
   <div class="wrapper">
     <header>
-      <Menu />
+      <menu-hp />
     </header>
     <main>
       <RouterView />
     </main>
-    <Footer />
+    <footer-hp />
   </div>
 </template>
 
