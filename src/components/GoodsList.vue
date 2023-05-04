@@ -14,23 +14,28 @@ const props = defineProps({
   button: {
     type: Boolean,
     default: false
+  },
+  sale: {
+    type: Boolean,
+    default: false
   }
 })
 
 const goodsStore = useGoodsStore()
 
-const title = computed(() => goodsStore.getCategoryName(props.category) ?? 'Каталог')
+const title = computed(() => goodsStore.getCategoryName(props.category))
 </script>
 
 <template>
   <div class="container-wrapper goods-list">
-    <h2>{{ title }}</h2>
+    <h2 v-if="title">{{ title }}</h2>
     <div class="container">
       <product-card
         :id="v.id"
         :name="v.name"
         :price="v.price"
-        v-for="(v, i) of goodsStore.goodsList(category)"
+        :old-price="v.oldPrice"
+        v-for="(v, i) of goodsStore.goodsList({ categoryId: category, sale })"
         :key="i"
       />
     </div>

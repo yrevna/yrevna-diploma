@@ -13,6 +13,9 @@ const props = defineProps({
   price: {
     type: Number,
     required: true
+  },
+  oldPrice: {
+    type: Number
   }
 })
 
@@ -23,7 +26,9 @@ const imgSrc = computed(() => `/img/goods/${props.id}.png`)
   <div class="product-card">
     <div class="product-card-img"><img :src="imgSrc" :alt="name" /></div>
     <div class="product-card-title">{{ name }}</div>
-    <div class="product-card-price">{{ price }} ₽</div>
+    <div class="product-card-price">
+      <s v-if="oldPrice">{{ oldPrice }} ₽</s> {{ price }} ₽
+    </div>
     <div class="product-card-cart">
       <button class="add-to-cart">В корзину</button>
     </div>

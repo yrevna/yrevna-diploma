@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+const contact = () =>
+  window.scroll({
+    top: document.body.scrollHeight,
+    behavior: 'smooth'
+  })
+</script>
 
 <template>
   <menu>
@@ -16,15 +22,11 @@
       </li>
 
       <li>
-        <router-link to="/blog">Blog</router-link>
-      </li>
-
-      <li>
         <router-link to="/faq">FAQ</router-link>
       </li>
 
       <li>
-        <router-link to="/contact">Contact</router-link>
+        <a href="#" @click.prevent="contact">Contact</a>
       </li>
     </ul>
   </menu>

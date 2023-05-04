@@ -41,8 +41,4 @@ p {
     transparent 100%
   );
 }
-
-h1.main-title {
-  margin-top: 50px;
-}
 </style>

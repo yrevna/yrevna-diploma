@@ -25,5 +25,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding-top: 50px;
 }
 </style>

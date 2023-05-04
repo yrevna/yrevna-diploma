@@ -12,6 +12,16 @@ const router = createRouter({
       path: '/catalog',
       name: 'catalog',
       component: () => import('../views/CatalogView.vue')
+    },
+    {
+      path: '/discounts',
+      name: 'discounts',
+      component: () => import('../views/SaleView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('../views/404View.vue')
     }
   ]
 })
