@@ -26,9 +26,17 @@ const title = computed(() => goodsStore.getCategoryName(props.category) ?? 'Ка
   <div class="container-wrapper goods-list">
     <h2>{{ title }}</h2>
     <div class="container">
-      <product-card v-bind="v" v-for="(v, i) of goodsStore.goodsList(category)" :key="i" />
+      <product-card
+        :id="v.id"
+        :name="v.name"
+        :price="v.price"
+        v-for="(v, i) of goodsStore.goodsList(category)"
+        :key="i"
+      />
     </div>
-    <button class="catalog-button" v-if="button">В каталог</button>
+    <button class="catalog-button" v-if="button" @click="$router.push('/catalog')">
+      В каталог
+    </button>
   </div>
 </template>
 

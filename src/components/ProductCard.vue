@@ -16,7 +16,7 @@ const props = defineProps({
   }
 })
 
-const imgSrc = computed(() => `/img/goods/${props.id}.webp`)
+const imgSrc = computed(() => `/img/goods/${props.id}.png`)
 </script>
 
 <template>
