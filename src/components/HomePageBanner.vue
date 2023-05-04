@@ -4,7 +4,7 @@ import HPB from '@/assets/img/HPB.jpg'
 
 <template>
   <div class="container-wrapper">
-    <h1 class="main-title">Hogsmeade Village</h1>
+    <h1 class="main-title text-center">Hogsmeade Village</h1>
     <img :src="HPB" alt="Баннер" class="main-img" />
     <div class="container">
       <p>Добро пожаловать в мир магии и приключений!</p>

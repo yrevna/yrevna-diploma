@@ -28,7 +28,7 @@ const title = computed(() => goodsStore.getCategoryName(props.category))
 
 <template>
   <div class="container-wrapper goods-list">
-    <h2 v-if="title">{{ title }}</h2>
+    <h2 v-if="title" class="text-center">{{ title }}</h2>
     <div class="container">
       <product-card
         :id="v.id"

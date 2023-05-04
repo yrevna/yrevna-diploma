@@ -3,6 +3,6 @@ import GoodsList from '@/components/GoodsList.vue'
 </script>
 
 <template>
-  <h2>Скидки</h2>
+  <h2 class="text-center">Скидки</h2>
   <goods-list sale />
 </template>
