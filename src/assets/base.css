@@ -78,3 +78,15 @@ h6 {
 .text-center {
     text-align: center;
 }
+
+.catalog-button {
+    background-color: var(--background-color);
+    color: var(--body-color);
+    padding: 10px 40px;
+    border: 1px solid var(--body-color);
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 40px;
+    font-size: large;
+    transition: background-color var(--button-transition), color var(--button-transition);
+}

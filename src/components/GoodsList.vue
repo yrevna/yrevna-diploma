@@ -56,18 +56,6 @@ const title = computed(() => goodsStore.getCategoryName(props.category))
   margin-bottom: 30px;
 }
 
-.catalog-button {
-  background-color: var(--background-color);
-  color: var(--body-color);
-  padding: 10px 40px;
-  border: 1px solid var(--body-color);
-  border-radius: 20px;
-  cursor: pointer;
-  margin-top: 40px;
-  font-size: large;
-  transition: background-color var(--button-transition), color var(--button-transition);
-}
-
 .catalog-button:hover {
   background-color: var(--body-color);
   color: var(--background-color);
