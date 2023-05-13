@@ -28,11 +28,19 @@ p {
   width: 600px;
 }
 
+.main-title {
+  position: absolute;
+  z-index: 2;
+  text-shadow: 0 0 20px var(--background-color);
+}
+
 .main-img {
   margin-top: 10px;
   position: relative;
   width: 100%;
-  --gradient-percent: 40%;
+  aspect-ratio: 3/1;
+  object-fit: cover;
+  --gradient-percent: 60%;
   mask-image: linear-gradient(
     180deg,
     transparent 0,

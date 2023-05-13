@@ -25,7 +25,8 @@ const countInCart = computed({
       <div>
         <div>{{ modelValue.name }}</div>
         <div>
-          <s v-if="modelValue.oldPrice">{{ modelValue.oldPrice }} ₽</s> {{ modelValue.price }} ₽
+          <s v-if="modelValue.oldPrice">{{ modelValue.oldPrice * countInCart }} ₽</s>
+          {{ modelValue.price * countInCart }} ₽
         </div>
       </div>
       <div>

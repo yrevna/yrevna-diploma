@@ -34,7 +34,7 @@ const cost = computed(() => {
     <div class="cart container" v-if="goodsInCart.length">
       <card-of-cart :model-value="v" v-for="(v, i) of goodsInCart" :key="i" />
       <h3>
-        Итого:<s v-if="cost.oldPrice !== cost.price">{{ cost.oldPrice }} ₽</s> {{ cost.price }} ₽
+        Итого: <s v-if="cost.oldPrice !== cost.price">{{ cost.oldPrice }} ₽</s> {{ cost.price }} ₽
       </h3>
       <div class="cart-actions">
         <button class="catalog-button" @click="orderCart">Оформить заказ</button>
