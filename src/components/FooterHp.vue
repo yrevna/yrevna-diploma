@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+const year = new Date().getFullYear()
+</script>
 
 <template>
   <footer>
@@ -23,8 +25,8 @@
       </div>
     </div>
     <div class="footer-by">
-      © 2023 yrevna.com. Все права защищены. Перепечатка и любое использование материалов возможно
-      только при наличии ссылки на первоисточник.
+      © {{ year }} yrevna.com. Все права защищены. Перепечатка и любое использование материалов
+      возможно только при наличии ссылки на первоисточник.
     </div>
   </footer>
 </template>
