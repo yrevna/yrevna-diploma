@@ -13,10 +13,11 @@ export const useGoodsStore = defineStore('goods', () => {
     categoryList.value = v.data
   })
 
-  const goodsList = ({ categoryId, sale = false }) => {
+  const goodsList = ({ categoryId, sale = false, ids }) => {
     let result = list.value
     if (categoryId) result = result.filter((v) => v.category === categoryId)
     if (sale) result = result.filter((v) => v.oldPrice)
+    if (ids !== undefined) result = result.filter((v) => ids.includes(v.id))
     return result
   }
 

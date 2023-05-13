@@ -1,11 +1,23 @@
-<script setup></script>
+<script setup>
+import { useCartStore } from '@/stores/cart'
+import { useGoodsStore } from '@/stores/goods'
+import { computed } from 'vue'
+import CardOfCart from '@/components/CardOfCart.vue'
+
+const cartStore = useCartStore()
+const goodsStore = useGoodsStore()
+const goodsInCart = computed(() =>
+  goodsStore.goodsList({
+    ids: cartStore.goods.map((v) => v.id)
+  })
+)
+</script>
 
 <template>
   <h1>Корзина</h1>
   <div class="container-wrapper">
     <div class="cart container">
-      <div class="card-of-cart">1</div>
-      <div class="card-of-cart">2</div>
+      <card-of-cart :product="v" v-for="(v, i) of goodsInCart" :key="i" />
       <div class="cart-actions">
         <button class="catalog-button">Оформить заказ</button>
         <button class="catalog-button">Очистить корзину</button>

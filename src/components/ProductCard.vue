@@ -1,36 +1,34 @@
 <script setup>
 import { computed } from 'vue'
+import { useCartStore } from '@/stores/cart'
+import CountClicker from '@/components/CountClicker.vue'
 
 const props = defineProps({
-  id: {
-    type: Number,
+  modelValue: {
+    type: Object,
     required: true
-  },
-  name: {
-    type: String,
-    required: true
-  },
-  price: {
-    type: Number,
-    required: true
-  },
-  oldPrice: {
-    type: Number
   }
 })
 
-const imgSrc = computed(() => `/img/goods/${props.id}.png`)
+const imgSrc = computed(() => `/img/goods/${props.modelValue.id}.png`)
+
+const cartStore = useCartStore()
+const countInCart = computed({
+  get: () => cartStore.itemInfo(props.modelValue.id),
+  set: (v) => cartStore.setCount(props.modelValue.id, v)
+})
 </script>
 
 <template>
   <div class="product-card">
-    <div class="product-card-img"><img :src="imgSrc" :alt="name" /></div>
-    <div class="product-card-title">{{ name }}</div>
+    <div class="product-card-img"><img :src="imgSrc" :alt="modelValue.name" /></div>
+    <div class="product-card-title">{{ modelValue.name }}</div>
     <div class="product-card-price">
-      <s v-if="oldPrice">{{ oldPrice }} ₽</s> {{ price }} ₽
+      <s v-if="modelValue.oldPrice">{{ modelValue.oldPrice }} ₽</s> {{ modelValue.price }} ₽
     </div>
     <div class="product-card-cart">
-      <button class="add-to-cart">В корзину</button>
+      <button class="add-to-cart" v-if="!countInCart" @click="countInCart++">В корзину</button>
+      <count-clicker v-model="countInCart" v-else />
     </div>
   </div>
 </template>

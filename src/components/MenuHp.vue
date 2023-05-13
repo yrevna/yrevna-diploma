@@ -16,15 +16,15 @@ const contact = () =>
       <li>
         <router-link to="/catalog">Catalog</router-link>
       </li>
-
       <li>
         <router-link to="/discounts">Discounts</router-link>
       </li>
-
       <li>
         <router-link to="/faq">FAQ</router-link>
       </li>
-
+      <li>
+        <router-link to="/cart">Cart</router-link>
+      </li>
       <li>
         <a href="#" @click.prevent="contact">Contact</a>
       </li>

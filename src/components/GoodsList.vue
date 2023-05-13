@@ -31,10 +31,7 @@ const title = computed(() => goodsStore.getCategoryName(props.category))
     <h2 v-if="title" class="text-center">{{ title }}</h2>
     <div class="container">
       <product-card
-        :id="v.id"
-        :name="v.name"
-        :price="v.price"
-        :old-price="v.oldPrice"
+        :model-value="v"
         v-for="(v, i) of goodsStore.goodsList({ categoryId: category, sale })"
         :key="i"
       />
