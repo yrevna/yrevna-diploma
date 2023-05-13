@@ -60,21 +60,6 @@ const countInCart = computed({
   align-self: center;
 }
 
-button.add-to-cart {
-  background-color: var(--background-color);
-  color: var(--body-color);
-  padding: 5px 20px;
-  border: 0;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: background-color var(--button-transition), color var(--button-transition);
-}
-
-button.add-to-cart:hover {
-  background-color: var(--body-color);
-  color: var(--background-color);
-}
-
 .product-card-price {
   font-size: large;
   color: var(--h-color);

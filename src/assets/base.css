@@ -86,7 +86,6 @@ h6 {
     border: 1px solid var(--body-color);
     border-radius: 20px;
     cursor: pointer;
-    margin-top: 40px;
     font-size: large;
     transition: background-color var(--button-transition), color var(--button-transition);
 }

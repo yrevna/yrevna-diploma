@@ -2,10 +2,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useCartStore = defineStore('cart', () => {
-  const goods = ref([
-    { id: 1, count: 1 },
-    { id: 2, count: 4 }
-  ])
+  const goods = ref([])
   const itemInfo = (id) => goods.value.find((v) => v.id === id)?.count ?? 0
   const setCount = (id, count) => {
     const itemIndex = goods.value.findIndex((v) => v.id === id)

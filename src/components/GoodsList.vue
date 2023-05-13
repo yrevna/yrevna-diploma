@@ -49,8 +49,8 @@ const title = computed(() => goodsStore.getCategoryName(props.category))
   gap: 20px;
 }
 
-.goods-list h2 {
-  margin-bottom: 30px;
+.goods-list {
+  gap: 30px;
 }
 
 .catalog-button:hover {

@@ -11,18 +11,37 @@ const goodsInCart = computed(() =>
     ids: cartStore.goods.map((v) => v.id)
   })
 )
+
+const clearCart = () => (cartStore.goods = [])
+const orderCart = () => {
+  alert('Ваш заказ оформлен!')
+  clearCart()
+}
+const cost = computed(() => {
+  const res = { price: 0, oldPrice: 0 }
+  for (let v of goodsInCart.value) {
+    const quantity = cartStore.itemInfo(v.id)
+    res.price += v.price * quantity
+    res.oldPrice += (v.oldPrice ?? v.price) * quantity
+  }
+  return res
+})
 </script>
 
 <template>
   <h1>Корзина</h1>
   <div class="container-wrapper">
-    <div class="cart container">
-      <card-of-cart :product="v" v-for="(v, i) of goodsInCart" :key="i" />
+    <div class="cart container" v-if="goodsInCart.length">
+      <card-of-cart :model-value="v" v-for="(v, i) of goodsInCart" :key="i" />
+      <h3>
+        Итого:<s v-if="cost.oldPrice !== cost.price">{{ cost.oldPrice }} ₽</s> {{ cost.price }} ₽
+      </h3>
       <div class="cart-actions">
-        <button class="catalog-button">Оформить заказ</button>
-        <button class="catalog-button">Очистить корзину</button>
+        <button class="catalog-button" @click="orderCart">Оформить заказ</button>
+        <button class="catalog-button" @click="clearCart">Очистить корзину</button>
       </div>
     </div>
+    <h3 class="text-center" v-else>Ваша корзина пуста</h3>
   </div>
 </template>
 
@@ -47,5 +66,9 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 50px;
+}
+
+.cart h3 {
+  text-align: end;
 }
 </style>
